@@ -7,14 +7,22 @@ export default defineConfig({
     outDir: '../dist',
     emptyOutDir: true,
   },
+  server: {
+    watch: {
+      ignored: ['**/vite_dev/**/*.html']
+    }
+  },
   plugins: [
     {
       name: 'watch-mustela',
       configureServer(server) {
-        // server.watcher.add('./vite_dev/*.html');
         server.watcher.add('./vite_dev/**/*.{html,xml,json}');
+        let timer;
         server.watcher.on('change', () => {
-          server.ws.send({ type: 'full-reload', path: '*' });
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            server.ws.send({ type: 'full-reload', path: '*' });
+          }, 100); 
         });
       }
     },

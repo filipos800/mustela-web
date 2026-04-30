@@ -4,4 +4,8 @@
     <loc>http://localhost:5173/</loc>
     <lastmod>2026-04-30</lastmod>
   </url>
+  <url>
+    <loc>http://localhost:5173/test</loc>
+    <lastmod>2026-04-30</lastmod>
+  </url>
 </urlset>
