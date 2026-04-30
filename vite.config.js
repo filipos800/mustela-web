@@ -1,11 +1,31 @@
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { resolve } from 'path';
+import { readdirSync } from 'fs';
+
+const getHtmlEntries = () => {
+  const root = resolve(__dirname, 'vite_dev');
+  const files = readdirSync(root);
+  const entries = {};
+
+  files.forEach(file => {
+    if (file.endsWith('.html')) {
+      const name = file.replace('.html', '');
+      entries[name] = resolve(root, file);
+    }
+  });
+
+  return entries;
+};
 
 export default defineConfig({
   root: 'vite_dev',
   build: {
     outDir: '../dist',
     emptyOutDir: true,
+    rollupOptions: {
+      input: getHtmlEntries()
+    }
   },
   server: {
     watch: {
