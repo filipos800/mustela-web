@@ -5,17 +5,19 @@ import { readdirSync } from 'fs';
 
 const getHtmlEntries = () => {
   const root = resolve(__dirname, 'vite_dev');
-  const files = readdirSync(root);
-  const entries = {};
-
-  files.forEach(file => {
-    if (file.endsWith('.html')) {
-      const name = file.replace('.html', '');
-      entries[name] = resolve(root, file);
-    }
-  });
-
-  return entries;
+  try {
+    const files = readdirSync(root);
+    const entries = {};
+    files.forEach(file => {
+      if (file.endsWith('.html')) {
+        const name = file.replace('.html', '');
+        entries[name] = resolve(root, file);
+      }
+    });
+    return entries;
+  } catch (e) {
+    return {};
+  }
 };
 
 export default defineConfig({
@@ -37,6 +39,7 @@ export default defineConfig({
       name: 'watch-mustela',
       configureServer(server) {
         server.watcher.add('./vite_dev/**/*.{html,xml,json}');
+        
         let timer;
         server.watcher.on('change', () => {
           clearTimeout(timer);
