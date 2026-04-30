@@ -1,1 +1,1 @@
-console.log("hello");
+import './architecture_3d'

@@ -5,11 +5,11 @@
 config do
 -  title:          ""
   description:     ""
-  base_url:        "http://localhost:5173"
+  base_url:        "https://mustela.vercel.app"
   lang:            "en"
--  date_format:    ""
-  theme:          "default"
--  posts_per_page: 6
+  date_format:     "YYYY"
+  theme:           "default"
+-  generate_rss:   true
   generate_rss:    false
 -  generate_json:  false
   author:          "Filip Vrba"

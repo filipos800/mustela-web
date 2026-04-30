@@ -23,17 +23,19 @@ html as head do
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
+    <!-- Fonty pro moderní vzhled -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     @html[style]
 </head>
 end
 
 html as body do
 <body>
-    <div class="app">
-        <main>
-            @view
-        </main>
-    </div>
+    @html[header]
+    @html[hub]
+    @html[footer]
 
     <script type="module" src="/src/js/main.js"></script>
 </body>

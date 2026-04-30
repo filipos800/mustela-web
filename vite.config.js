@@ -56,6 +56,6 @@ export default defineConfig({
           dest: './'
         }
       ]
-    })
+    }),
   ]
 });
