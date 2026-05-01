@@ -5,15 +5,23 @@ import { readdirSync } from 'fs';
 
 const getHtmlEntries = () => {
   const root = resolve(__dirname, 'vite_dev');
-  try {
-    const files = readdirSync(root);
-    const entries = {};
+  const entries = {};
+
+  const readDir = (dir, prefix = '') => {
+    const files = readdirSync(dir, { withFileTypes: true });
     files.forEach(file => {
-      if (file.endsWith('.html')) {
-        const name = file.replace('.html', '');
-        entries[name] = resolve(root, file);
+      if (file.isDirectory()) {
+        readDir(resolve(dir, file.name), `${prefix}${file.name}/`);
+      } else if (file.name.endsWith('.html')) {
+        const name = `${prefix}${file.name.replace('.html', '')}`;
+        const entryKey = name.replace(/\/index$/, '') || 'main';
+        entries[entryKey] = resolve(dir, file.name);
       }
     });
+  };
+
+  try {
+    readDir(root);
     return entries;
   } catch (e) {
     return {};
