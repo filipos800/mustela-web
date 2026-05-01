@@ -29,6 +29,16 @@ html as features do
         <h3>400KB Binary</h3>
         <p>No dependencies, no node_modules. Just a single, tiny, statically linked binary ready to run.</p>
     </div>
+    <div class="card">
+        <div class="icon">🛠️</div>
+        <h3>Deterministic</h3>
+        <p>Guaranteed consistent output across all builds. No race conditions, just predictable and stable generation every time.</p>
+    </div>
+    <div class="card">
+        <div class="icon">🔄</div>
+        <h3>Partial Hydration</h3>
+        <p>Smart change detection only re-renders what is necessary, keeping developer feedback loops under 50ms.</p>
+    </div>
 </section>
 end
 
@@ -79,7 +89,10 @@ html as dsl do
     <p>A seamless transition from metadata to content that feels like writing a script, not just a document.</p>
     @html[dsl_article]
 
+    <h3>Modular Templating</h3>
+    <p>This is where you define the structure. Mustela utilizes a stateful DSL, allowing you to compose HTML components with zero rendering overhead.</p>
     @html[dsl_theme]
+</div>
 </section>
 end
 
