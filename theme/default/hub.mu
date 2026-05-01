@@ -3,6 +3,7 @@ html as hub do
     @html[features]
     @html[performance]
     @html[dsl]
+    @html[ecosystem]
     @html[architecture]
 </main>
 end
@@ -80,6 +81,57 @@ html as performance do
     <blockquote>
         "Building 5,000 pages in half a second means your site is ready before your monitor can even finish its next refresh cycle."
     </blockquote>
+</section>
+end
+
+html as ecosystem do
+<section id="ecosystem" class="ecosystem-container">
+    <div class="container">
+        <h2>Modular Ecosystem</h2>
+        <p class="description" style="margin-bottom: 1rem;">
+            Mustela isn't a silo. It's a <strong>high-performance core</strong> that generates clean, modern scaffolding ready for any stack.
+        </p>
+        <p style="color: var(--text-dim); max-width: 750px; margin: 0 auto;">
+            Render content at sub-millisecond speeds with <strong>V</strong>, while letting <strong>Bun</strong> or <strong>Vite</strong> handle the heavy lifting of the modern JavaScript ecosystem.
+        </p>
+
+        <!-- Main Integration Flow -->
+        <div class="integration-grid">
+            <div class="integration-item">
+                <div class="tech-tag">Static Generator</div>
+                <div class="tech-name">Mustela</div>
+            </div>
+            <div class="integration-connector">+</div>
+            <div class="integration-item">
+                <div class="tech-tag">Runtime / Bundler</div>
+                <div class="tech-name">Bun & Vite</div>
+            </div>
+            <div class="integration-connector">+</div>
+            <div class="integration-item">
+                <div class="tech-tag">UI / Logic</div>
+                <div class="tech-name">React / Alpine</div>
+            </div>
+        </div>
+
+        <!-- Tech Cloud -->
+        <div class="tech-cloud">
+            <span class="tech-pill">Tailwind CSS</span>
+            <span class="tech-pill">PostCSS</span>
+            <span class="tech-pill">Shadcn/ui</span>
+            <span class="tech-pill">Framer Motion</span>
+            <span class="tech-pill">Lucide Icons</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Svelte</span>
+            <span class="tech-pill">GSAP</span>
+            <span class="tech-pill">Zustand</span>
+        </div>
+
+        <!-- Terminal Scaffolding Prompt -->
+        <div class="terminal-hint">
+            <span class="terminal-comment">// Spin up a Vite-ready workspace</span>
+            <span class="terminal-command">$ mustela init --template vite</span>
+        </div>
+    </div>
 </section>
 end
 

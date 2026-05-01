@@ -425,15 +425,123 @@ pre {
   }
 }
 
-@media (max-width: 900px) {
-  .pipeline-dashboard {
-    grid-template-columns: 1fr;
-  }
+@html[style_ecosystem]
 
-  .pipeline-info {
-    border-right: none;
-    border-bottom: 1px solid #30363d;
-  }
+@media (max-width: 900px) {
+    .pipeline-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .pipeline-info {
+        border-right: none;
+        border-bottom: 1px solid #30363d;
+    }
 }
 </style>
+end
+
+html as style_ecosystem do
+.ecosystem-container {
+    padding-top: 6rem;
+    text-align: center;
+}
+
+.integration-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.integration-item {
+    background: var(--card-bg);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    min-width: 180px;
+    transition: border-color 0.3s ease;
+}
+
+.integration-item:hover {
+    border-color: var(--accent);
+}
+
+.tech-tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.tech-name {
+    font-weight: 800;
+    color: --var(--accent);
+    font-size: 1.2rem;
+}
+
+.integration-connector {
+    font-size: 1.8rem;
+    color: var(--text-dim);
+    font-weight: 300;
+}
+
+/* Tech Cloud Pills */
+.tech-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 850px;
+    margin: 3rem auto;
+}
+
+.tech-pill {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: var(--mono-font);
+    color: var(--text-main);
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.tech-pill:hover {
+    border-color: var(--accent);
+    background: var(--accent-glow);
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.terminal-hint {
+    margin-top: 4rem;
+    font-family: var(--mono-font);
+    background: #010409;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+}
+
+.terminal-comment { color: var(--text-dim); margin-bottom: 0.5rem; display: block; font-size: 0.8rem; }
+.terminal-command { color: var(--mustela-green); font-weight: bold; }
+
+.terminal-command::after {
+  content: "_";
+  animation: cursor-blink 1s infinite;
+  color: var(--mustela-green);
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .integration-grid { flex-direction: column; gap: 1rem; }
+    .integration-connector { transform: rotate(90deg); margin: 0.5rem 0; }
+}
 end
