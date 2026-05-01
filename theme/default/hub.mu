@@ -5,6 +5,7 @@ html as hub do
     @html[dsl]
     @html[ecosystem]
     @html[architecture]
+    @html[licensing]
 </main>
 end
 
@@ -89,7 +90,7 @@ html as ecosystem do
     <div class="container">
         <h2>Modular Ecosystem</h2>
         <p class="description" style="margin-bottom: 1rem;">
-            Mustela isn't a silo. It's a <strong>high-performance core</strong> that generates clean, modern scaffolding ready for any stack.
+            @title_web isn't a silo. It's a <strong>high-performance core</strong> that generates clean, modern scaffolding ready for any stack.
         </p>
         <p style="color: var(--text-dim); max-width: 750px; margin: 0 auto;">
             Render content at sub-millisecond speeds with <strong>V</strong>, while letting <strong>Bun</strong> or <strong>Vite</strong> handle the heavy lifting of the modern JavaScript ecosystem.
@@ -99,7 +100,7 @@ html as ecosystem do
         <div class="integration-grid">
             <div class="integration-item">
                 <div class="tech-tag">Static Generator</div>
-                <div class="tech-name">Mustela</div>
+                <div class="tech-name">@title_web</div>
             </div>
             <div class="integration-connector">+</div>
             <div class="integration-item">
@@ -142,7 +143,7 @@ html as dsl do
     @html[dsl_article]
 
     <h3>Modular Templating</h3>
-    <p>This is where you define the structure. Mustela utilizes a stateful DSL, allowing you to compose HTML components with zero rendering overhead.</p>
+    <p>This is where you define the structure. @title_web utilizes a stateful DSL, allowing you to compose HTML components with zero rendering overhead.</p>
     @html[dsl_theme]
 </div>
 </section>
@@ -162,12 +163,12 @@ html as dsl_article do
   index:  <span class="mu-string">article</span>
 <span class="mu-keyword">end</span>
 
-<span class="header"># Mixing Markdown & Mustela</span>
+<span class="header"># Mixing Markdown & @title_web</span>
 This is standard Markdown text.
 
 <span class="mu-keyword">html do</span>
 <span class="mu-tag">&lt;div class="special-callout"&gt;</span>
-  <span class="mu-tag">&lt;h4&gt;</span>Mustela Insight<span class="mu-tag">&lt;/h4&gt;</span>
+  <span class="mu-tag">&lt;h4&gt;</span>@title_web Insight<span class="mu-tag">&lt;/h4&gt;</span>
   <span class="mu-tag">&lt;p&gt;</span>Reading a variable: <span class="mu-tag">&lt;strong&gt;</span><span class="mu-at">&commat;author</span><span class="mu-tag">&lt;/strong&gt;&lt;/p&gt;</span>
 <span class="mu-tag">&lt;/div&gt;</span>
 <span class="mu-keyword">end</span></code></pre>
@@ -183,7 +184,7 @@ html as dsl_theme do
         <span class="file-name">theme.mu</span>
     </div>
     <pre><code><span class="mu-keyword">meta do</span>
-  title: <span class="mu-string">Mustela</span>
+  title: <span class="mu-string">@title_web</span>
   index: <span class="mu-string">main</span>
 <span class="mu-keyword">end</span>
 
@@ -248,6 +249,47 @@ html as architecture do
                 <div id="architecture-canvas"></div>
             </div>
         </div>
+    </div>
+</section>
+end
+
+html as licensing do
+<section id="licensing" style="padding-bottom: 2rem;">
+    <div class="container">
+        <h2>Free for Everyone</h2>
+        <p class="section-intro">@title_web is built to empower creators. Whether you are building a personal diary or a high-traffic commercial platform, the engine is yours to use.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🏢</div>
+            <h3>Commercial Usage</h3>
+            <p>Included. You can use @title_web to build and host commercial websites, client projects, or internal corporate tools without any licensing fees.</p>
+        </div>
+        <div class="card">
+            <div class="icon">📄</div>
+            <h3>Freeware Model</h3>
+            <p>The binary is free to download and distribute. The source code remains private to ensure the project stays focused and performant.</p>
+        </div>
+    </div>
+</section>
+
+<section style="padding: 8rem 0; text-align: center; background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%); border-top: 1px solid #30363d;">
+    <div class="container">
+        <h2 style="font-size: 3rem; margin-bottom: 1rem;">Experience the speed.</h2>
+        <p style="color: var(--text-dim); font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">
+            Stop waiting for your builds. Download @title_web and transform your workflow today.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+            <a href="@url_get_started" class="btn primary" style="font-size: 1.2rem; padding: 1.2rem 2.5rem; box-shadow: 0 0 20px var(--accent-glow);">
+                Get Started Now
+            </a>
+        </div>
+        
+        <p style="margin-top: 2rem; font-family: var(--mono-font); font-size: 0.8rem; color: var(--text-dim);">
+            Current version: <span style="color: var(--accent);">@version</span>
+        </p>
     </div>
 </section>
 end
