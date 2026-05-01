@@ -1,5 +1,20 @@
-html as doc_style do
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Core Concepts | Mustela</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Fonty pro moderní vzhled -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
     :root {
         /* Barevná paleta */
         --bg-main: #0d1117;
@@ -11,7 +26,7 @@ html as doc_style do
         --accent: #58a6ff;
         --accent-glow: rgba(88, 166, 255, 0.15);
         --code-bg: #010409;
-        
+
         /* Typografie */
         --font-main: 'Inter', sans-serif;
         --font-display: 'Urbanist', sans-serif;
@@ -118,14 +133,14 @@ html as doc_style do
     .markdown-content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; font-family: var(--font-display); }
     .markdown-content h2 { font-size: 1.8rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
     .markdown-content p { margin-bottom: 1.2rem; font-size: 1.05rem; color: #d1d5db; }
-    
+
     li code {
         background: var(--surface);
     }
 
     .markdown-content code {
         font-family: var(--font-mono);
-        
+
         border-radius: 4px;
         font-size: 0.9rem;
         color: #e6edf3;
@@ -233,6 +248,91 @@ html as doc_style do
         }
     }
 
-    
+
 </style>
-end
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Urbanist:wght@800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="layout-wrapper">
+        <aside class="sidebar">
+    <div class="sidebar-header">
+        <a href="/" class="logo">Mustela<span>.</span></a>
+        <div class="version-tag">v1.0.0-stable</div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <div class="nav-group">
+            <span class="group-title">Getting Started</span>
+            <a href="/doc/get-started.html">Installation</a>
+            <a href="/doc/concepts.html">Core Concepts</a>
+        </div>
+        <div class="nav-group">
+            <span class="group-title">DSL Reference</span>
+            <a href="/doc/metadata.html">Metadata</a>
+            <a href="/doc/html-blocks.html">HTML Blocks</a>
+        </div>
+    </nav>
+</aside>
+
+
+        <main class="content-container">
+            <nav class="breadcrumb">
+                Docs / <span class="active">Architecture</span>
+            </nav>
+
+            <article class="markdown-content">
+                <h1>🧠 Core Concepts</h1>
+<p>To master Mustela, you need to understand the philosophy behind its engine. Unlike traditional generators that rely on heavy runtimes and data cloning, Mustela is built like a high-speed data pipeline.</p>
+<h2>1. The &quot;Data Slide&quot; Pipeline</h2>
+<p>Most generators act like obstacle courses—data jumps through allocations, garbage collection, and constant cloning. Mustela treats data as a <strong>slide</strong>.</p>
+<ol>
+  <li value="1"> <strong>Parallel Ingest:</strong> All source data is pulled into RAM simultaneously using multi-threading to saturate your I/O bandwidth.</li>
+  <li value="2"> <strong>Synchronous Core:</strong> Once in RAM, a single-core event bus takes over. This provides absolute deterministic control with zero thread-locking (mutex) overhead.</li>
+  <li value="3"> <strong>Parallel Flush:</strong> Generated HTML objects are fired back to the disk as fast as the hardware allows.</li>
+</ol>
+<h2>2. Zero-Copy Principle</h2>
+<p>This is the secret to Mustela&#39;s extreme throughput. Once your Markdown content is loaded into the <strong>Heap</strong>, it stays there. </p>
+<p>We do not pass data copies between functions. Instead, we pass <strong>pointers</strong> to memory addresses. This drastically reduces CPU cycles and energy consumption by avoiding redundant memory allocations.</p>
+<h2>3. Stateful DSL &amp; Memory Recycling</h2>
+<p>The Mustela DSL (<code>.mu</code>) engine doesn&#39;t instantiate a new parser for every file. </p>
+<ul>
+  <li>It uses a structure already allocated on the heap.</li>
+  <li>Between processing files, it simply <strong>resets its internal state</strong>.</li>
+  <li>By reusing &quot;warm&quot; memory that is already mapped, we bypass the cost of constant allocation and deallocation, keeping peak RAM usage around <strong>35 MB</strong> even for 5,000 pages.</li>
+</ul>
+<h2>4. Unix-First Philosophy</h2>
+<p>Mustela is engineered for Unix-like environments (Linux, BSD, WSL). It leverages native system calls rather than relying on cross-platform abstractions that introduce latency.</p>
+<p>A prime example is our <strong>Watcher</strong>, which uses native <code>&lt;sys/inotify.h&gt;</code>. This allows the engine to react to filesystem changes with zero-latency, making the developer feedback loop feel instantaneous.</p>
+<h2>5. Hybrid Content Model</h2>
+<p>Mustela breaks the wall between static content and dynamic templating. You are encouraged to mix Markdown and DSL logic.</p>
+<ul>
+  <li><strong>Markdown:</strong> Best for standard text and structural content.</li>
+  <li><strong>HTML Blocks:</strong> Best for layout logic and component composition.</li>
+  <li><strong>Shared State:</strong> Variables defined in <code>meta</code> blocks are accessible to both, allowing for contextual logic (e.g., changing a CSS class only for a specific article) without touching the global theme.</li>
+</ul>
+<hr />
+<div style="border-left: 4px solid #f06c21; padding: 1rem 1.5rem; background: #161b22; margin: 2rem 0;">
+  <p style="margin: 0; color: #f5f5f5;"><strong>Next Step:</strong> Ready to see the syntax? Head over to the <a href="/doc/metadata.html" style="color: #58a6ff;">Metadata Reference</a>.</p>
+</div>
+
+            </article>
+
+            <footer class="doc-footer">
+    <div class="footer-links">
+        <a href="https://github.com/filipos800/mustela-web">GitHub</a>
+        <a href="/changelog.html">Changelog</a>
+    </div>
+    <p>© 2026 Mustela Engine. Built with extreme speed.</p>
+</footer>
+
+        </main>
+    </div>
+
+    <script type="module" src="/src/js/main.js"></script>
+
+</body>
+
+</html>

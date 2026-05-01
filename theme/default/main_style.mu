@@ -53,7 +53,7 @@ html as main_style do
   }
 
   h1 span {
-    color: var(--accent);
+    color: #f06c21;
   }
 
   .tagline {
