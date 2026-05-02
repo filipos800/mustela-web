@@ -1,7 +1,6 @@
 meta do
   title:     Hub
   title_web: Mustela
-  index:     main
   version:   v1.0.0-stable
 end
 

@@ -206,15 +206,74 @@
     border-radius: 10px;
     border: 1px solid #30363d;
     margin-top: 2rem;
-  }
+}
 
-  .code-header {
+.code-header {
     background: #161b22;
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     gap: 8px;
-  }
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red {
+    background: #ff5f56;
+}
+
+.yellow {
+    background: #ffbd2e;
+}
+
+.green {
+    background: #27c93f;
+}
+
+.file-name {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-family: var(--mono-font);
+}
+
+.code-window pre {
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+}
+
+  .mu-keyword {
+    color: #ff7b72;
+    font-weight: bold;
+}
+
+/* meta, html, as, do, end */
+.mu-at {
+    color: #79c0ff;
+}
+
+/* , Hub, en */
+.mu-string {
+    color: #a5d6ff;
+}
+
+/* hodnoty za dvojtečkou */
+.mu-tag {
+    color: #7ee787;
+}
+
+/* standardní HTML tagy */
+.mu-comment {
+    color: #8b949e;
+    font-style: italic;
+}
+
 
   .code-section p, .section-intro{
       text-align: center;
@@ -222,31 +281,6 @@
 
   .code-section h3 {
       margin-top: 4rem;
-  }
-
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-
-  .red {
-    background: #ff5f56;
-  }
-
-  .yellow {
-    background: #ffbd2e;
-  }
-
-  .green {
-    background: #27c93f;
-  }
-
-  .file-name {
-    margin-left: 10px;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    font-family: var(--mono-font);
   }
 
   pre {
@@ -262,32 +296,6 @@
 
   .header {
     color: #79c0ff;
-  }
-
-  .mu-keyword {
-    color: #ff7b72;
-    font-weight: bold;
-  }
-
-  /* meta, html, as, do, end */
-  .mu-at {
-    color: #79c0ff;
-  }
-
-  /* , Hub, en */
-  .mu-string {
-    color: #a5d6ff;
-  }
-
-  /* hodnoty za dvojtečkou */
-  .mu-tag {
-    color: #7ee787;
-  }
-
-  /* standardní HTML tagy */
-  .mu-comment {
-    color: #8b949e;
-    font-style: italic;
   }
 
   .blueprint {

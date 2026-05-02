@@ -37,8 +37,6 @@ html as doc_body do
             @html[doc_footer]
         </main>
     </div>
-
-    @html[scripts]
 </body>
 end
 

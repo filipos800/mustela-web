@@ -1,3 +1,7 @@
+meta do
+  mustela_orange: #f06c21
+end
+
 html as main_style do
 <style>
   :root {
@@ -53,7 +57,7 @@ html as main_style do
   }
 
   h1 span {
-    color: #f06c21;
+    color: @mustela_orange;
   }
 
   .tagline {
@@ -186,20 +190,8 @@ html as main_style do
     padding: 0 2rem;
   }
 
-  .code-window {
-    background: #010409;
-    border-radius: 10px;
-    border: 1px solid #30363d;
-    margin-top: 2rem;
-  }
-
-  .code-header {
-    background: #161b22;
-    padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  @html[code_window]
+  @html[mu_style]
 
   .code-section p, .section-intro{
       text-align: center;
@@ -207,31 +199,6 @@ html as main_style do
 
   .code-section h3 {
       margin-top: 4rem;
-  }
-
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-
-  .red {
-    background: #ff5f56;
-  }
-
-  .yellow {
-    background: #ffbd2e;
-  }
-
-  .green {
-    background: #27c93f;
-  }
-
-  .file-name {
-    margin-left: 10px;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    font-family: var(--mono-font);
   }
 
   pre {
@@ -247,32 +214,6 @@ html as main_style do
 
   .header {
     color: #79c0ff;
-  }
-
-  .mu-keyword {
-    color: #ff7b72;
-    font-weight: bold;
-  }
-
-  /* meta, html, as, do, end */
-  .mu-at {
-    color: #79c0ff;
-  }
-
-  /* , Hub, en */
-  .mu-string {
-    color: #a5d6ff;
-  }
-
-  /* hodnoty za dvojtečkou */
-  .mu-tag {
-    color: #7ee787;
-  }
-
-  /* standardní HTML tagy */
-  .mu-comment {
-    color: #8b949e;
-    font-style: italic;
   }
 
   .blueprint {
@@ -304,7 +245,7 @@ html as main_style do
     font-family: var(--mono-font);
     font-size: 1rem;
     line-height: 1.2;
-    color: #f06c21;
+    color: @mustela_orange;
     /* Jemnější oranžová ladící s GitHub dark mode */
     font-weight: 400;
     user-select: none;

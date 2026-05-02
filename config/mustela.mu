@@ -15,4 +15,5 @@ config do
   author:          "Filip Vrba"
   author_url:      "https://www.linkedin.com/in/filip-vrba-xi/" 
   id_headers:      false
+-  index:          main
 end

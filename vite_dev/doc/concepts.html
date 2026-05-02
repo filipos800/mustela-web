@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Core Concepts | Mustela</title>
+<title>Core Concepts & Architecture | Mustela</title>
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -132,6 +132,7 @@
 
     .markdown-content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; font-family: var(--font-display); }
     .markdown-content h2 { font-size: 1.8rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .markdown-content h3 { margin: 2rem 0 1rem; }
     .markdown-content p { margin-bottom: 1.2rem; font-size: 1.05rem; color: #d1d5db; }
 
     li code {
@@ -162,6 +163,12 @@
         border-radius: 8px;
         overflow-x: auto;
         margin: 1.5rem 0;
+    }
+
+    .markdown-content .code-window pre {
+        background: none;
+        border: none;
+        margin: 0;
     }
 
     /* Footer */
@@ -224,8 +231,136 @@
         font-family: var(--font-mono);
     }
 
+    .meta-table strong {
+        color: #f06c21;
+    }
+
     .footer-links { margin-bottom: 1rem; }
     .footer-links a { color: var(--accent); text-decoration: none; margin-right: 1.5rem; }
+
+    .code-window {
+    background: #010409;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+    margin-top: 2rem;
+}
+
+.code-header {
+    background: #161b22;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red {
+    background: #ff5f56;
+}
+
+.yellow {
+    background: #ffbd2e;
+}
+
+.green {
+    background: #27c93f;
+}
+
+.file-name {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-family: var(--mono-font);
+}
+
+.code-window pre {
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+}
+
+    .mu-keyword {
+    color: #ff7b72;
+    font-weight: bold;
+}
+
+/* meta, html, as, do, end */
+.mu-at {
+    color: #79c0ff;
+}
+
+/* , Hub, en */
+.mu-string {
+    color: #a5d6ff;
+}
+
+/* hodnoty za dvojtečkou */
+.mu-tag {
+    color: #7ee787;
+}
+
+/* standardní HTML tagy */
+.mu-comment {
+    color: #8b949e;
+    font-style: italic;
+}
+
+
+    /* Fix pro seznamy v dokumentaci */
+    .table-wrapper ul, 
+    .table-wrapper ol,
+    main ul, 
+    main ol {
+        margin: 1rem 0;          /* Mezera nad a pod seznamem */
+        padding-left: 1.5rem;    /* Dostatečný prostor pro kuličky */
+        list-style-position: inside; /* Klíčová vlastnost: kuličky budou uvnitř kontejneru */
+    }
+
+    .table-wrapper li,
+    main li {
+        margin-bottom: 0.5rem;   /* Mezera mezi jednotlivými položkami, aby nebyly přilepené */
+        line-height: 1.6;        /* Lepší čitelnost textu */
+    }
+
+    /* Pokud chceš kuličky nechat vlevo, ale zajistit, aby nebyly v ořezu: */
+    ul {
+        list-style-position: outside; 
+        margin-left: 1rem; 
+    }
+
+    figure {
+        margin: 3rem auto;
+        max-width: 900px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #0d1117;
+    }
+
+    figure img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    figure figcaption {
+        margin-top: 1.5rem;
+        color: #8b949e;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        text-align: center;
+        max-width: 80%;
+    }
+
+    figure figcaption strong {
+        color: #f06c21;
+    }
 
     @media (max-width: 768px) {
         .layout-wrapper {
@@ -284,38 +419,116 @@
             </nav>
 
             <article class="markdown-content">
-                <h1>🧠 Core Concepts</h1>
-<p>To master Mustela, you need to understand the philosophy behind its engine. Unlike traditional generators that rely on heavy runtimes and data cloning, Mustela is built like a high-speed data pipeline.</p>
-<h2>1. The &quot;Data Slide&quot; Pipeline</h2>
-<p>Most generators act like obstacle courses—data jumps through allocations, garbage collection, and constant cloning. Mustela treats data as a <strong>slide</strong>.</p>
-<ol>
-  <li value="1"> <strong>Parallel Ingest:</strong> All source data is pulled into RAM simultaneously using multi-threading to saturate your I/O bandwidth.</li>
-  <li value="2"> <strong>Synchronous Core:</strong> Once in RAM, a single-core event bus takes over. This provides absolute deterministic control with zero thread-locking (mutex) overhead.</li>
-  <li value="3"> <strong>Parallel Flush:</strong> Generated HTML objects are fired back to the disk as fast as the hardware allows.</li>
-</ol>
-<h2>2. Zero-Copy Principle</h2>
-<p>This is the secret to Mustela&#39;s extreme throughput. Once your Markdown content is loaded into the <strong>Heap</strong>, it stays there. </p>
-<p>We do not pass data copies between functions. Instead, we pass <strong>pointers</strong> to memory addresses. This drastically reduces CPU cycles and energy consumption by avoiding redundant memory allocations.</p>
+                <h1>🧠 Core Concepts &amp; Architecture</h1>
+<p>Mustela isn&#39;t just a static site generator. It’s a <strong>high-speed data pipeline</strong>.</p>
+<p>While traditional generators behave like obstacle courses — where data is constantly cloned, transformed, and cleaned up by a garbage collector — Mustela is designed as a <strong>frictionless slide</strong>. Once data enters the system, it moves toward the output with zero redundant movement.</p>
+<h2>1. The Three-Phase Pipeline</h2>
+<p>To achieve maximum throughput, Mustela splits the build process into three distinct, highly optimized stages:</p>
+<h3>Phase 1: Parallel Ingest (Disk ➔ RAM)</h3>
+<p>We don&#39;t read files one by one. Mustela uses multi-threading to saturate your hardware&#39;s I/O bandwidth, pulling all source content into RAM simultaneously.</p>
+<ul>
+  <li><strong>The Goal:</strong> Eliminate I/O wait times completely.</li>
+  <li><strong>The Result:</strong> Your entire project becomes a single, unified data object living on the <strong>Heap</strong>.</li>
+</ul>
+<h3>Phase 2: Synchronous Event-Bus Core</h3>
+<p>Once the data is in memory, a single-core event bus takes over for the actual processing.</p>
+<ul>
+  <li><strong>Why single-core?</strong> It provides absolute deterministic control. </li>
+  <li><strong>Zero Overhead:</strong> By running the core logic on one thread, we eliminate the need for <strong>mutexes</strong> (thread-locking) and the risk of race conditions, making the engine &quot;lock-free&quot; and incredibly lean.</li>
+</ul>
+<h3>Phase 3: Parallel Flush (RAM ➔ Disk)</h3>
+<p>As the HTML is rendered, it’s handed off to a parallelized worker pool. We &#39;fire&#39; the data back to disk using 32 concurrent threads—a limit that ensures maximum write stability and saturates SSD bandwidth without overwhelming the operating system&#39;s I/O scheduler.</p>
+<h2>2. The Zero-Copy Principle</h2>
+<p>Mustela’s speed comes from a simple rule: <strong>Don&#39;t touch the data unless you have to.</strong> </p>
+<p>Most engines copy strings from one function to another. Mustela strictly uses <strong>Pointer Passing</strong>. Once your Markdown is in memory, we pass only its address (pointer). This drastically reduces CPU cycles and energy consumption, as the system never has to allocate memory for the same data twice.</p>
 <h2>3. Stateful DSL &amp; Memory Recycling</h2>
-<p>The Mustela DSL (<code>.mu</code>) engine doesn&#39;t instantiate a new parser for every file. </p>
+<p>Every time a generator processes a new file, it usually creates a new &quot;environment.&quot; Mustela doesn&#39;t. We use <strong>State Recycling</strong>:</p>
 <ul>
-  <li>It uses a structure already allocated on the heap.</li>
-  <li>Between processing files, it simply <strong>resets its internal state</strong>.</li>
-  <li>By reusing &quot;warm&quot; memory that is already mapped, we bypass the cost of constant allocation and deallocation, keeping peak RAM usage around <strong>35 MB</strong> even for 5,000 pages.</li>
+  <li>The <strong>DSL engine (Lexer/Parser)</strong> is allocated once on the heap.</li>
+  <li>Between files, we simply <strong>reset its internal state</strong> instead of destroying and recreating it.</li>
+  <li>By reusing &quot;warm&quot; memory, we bypass the heavy cost of constant allocation.</li>
 </ul>
-<h2>4. Unix-First Philosophy</h2>
-<p>Mustela is engineered for Unix-like environments (Linux, BSD, WSL). It leverages native system calls rather than relying on cross-platform abstractions that introduce latency.</p>
-<p>A prime example is our <strong>Watcher</strong>, which uses native <code>&lt;sys/inotify.h&gt;</code>. This allows the engine to react to filesystem changes with zero-latency, making the developer feedback loop feel instantaneous.</p>
-<h2>5. Hybrid Content Model</h2>
-<p>Mustela breaks the wall between static content and dynamic templating. You are encouraged to mix Markdown and DSL logic.</p>
+<h2>4. Performance: The 5,000 Page Challenge</h2>
+<p>Mustela isn&#39;t just fast; it&#39;s engineered for extreme throughput.</p>
+<h3>Test Environment:</h3>
 <ul>
-  <li><strong>Markdown:</strong> Best for standard text and structural content.</li>
-  <li><strong>HTML Blocks:</strong> Best for layout logic and component composition.</li>
-  <li><strong>Shared State:</strong> Variables defined in <code>meta</code> blocks are accessible to both, allowing for contextual logic (e.g., changing a CSS class only for a specific article) without touching the global theme.</li>
+  <li><strong>CPU:</strong> Intel(R) Core(TM) i5-8365U @ 1.60GHz (4 cores / 8 threads)</li>
+  <li><strong>OS:</strong> ChromeOS Flex (Linux Container)</li>
+  <li><strong>Storage:</strong> SSD</li>
 </ul>
+<h3>Benchmark Results (Real-world content):</h3>
+<div class="table-wrapper">
+    <table class="meta-table">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Files Processed</strong></td>
+                <td>5,000 Markdown files</td>
+            </tr>
+            <tr>
+                <td><strong>Total Build Time</strong></td>
+                <td><strong>528 ms</strong> (0.5 seconds)</td>
+            </tr>
+            <tr>
+                <td><strong>Throughput</strong></td>
+                <td>~9,470 pages / second</td>
+            </tr>
+            <tr>
+                <td><strong>Peak RAM Usage</strong></td>
+                <td><strong>34.6 MB</strong></td>
+            </tr>
+            <tr>
+                <td><strong>CPU Efficiency</strong></td>
+                <td>131% (Multi-threaded I/O)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="border-left: 4px solid #58a6ff; padding: 1rem 1.5rem; background: #161b22; margin: 2rem 0;">
+  <p style="margin: 0; color: #f5f5f5;"><strong>Note:</strong> Building 5,000 pages in half a second means your site is ready before your monitor can even finish its next refresh cycle.</p>
+</div>
+<h3>4.1 Real-world Build Output:</h3>
+<pre><code class="language-txt">--------------------------------------
+  Mustela Build Finished
+  Files:   5000
+  Time:    528 ms (528633 µs)
+--------------------------------------
+        Command being timed: &quot;mustela build&quot;
+        User time (seconds): 0.16
+        System time (seconds): 0.54
+        Percent of CPU this job got: 131%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.53
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 35456
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 0
+        Minor (reclaiming a frame) page faults: 9437
+        Voluntary context switches: 15515
+        Involuntary context switches: 393
+        Swaps: 0
+        File system inputs: 0
+        File system outputs: 0
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0</code></pre>
+<h2>5. Visualizing the Flow</h2>
+<figure>
+  <img src="/images/data_flow_visualization.jpg" alt="Mustela's Zero-Copy Architecture: A high-throughput workflow showing the transition from parallel I/O ingest to a synchronous, state-recycled core, all operating on a zero-copy heap memory model.">
+  <figcaption><strong>Mustela&#39;s Zero-Copy Architecture:</strong> A high-throughput workflow showing the transition from parallel I/O ingest to a synchronous, state-recycled core, all operating on a zero-copy heap memory model.</figcaption>
+</figure>
 <hr />
 <div style="border-left: 4px solid #f06c21; padding: 1rem 1.5rem; background: #161b22; margin: 2rem 0;">
-  <p style="margin: 0; color: #f5f5f5;"><strong>Next Step:</strong> Ready to see the syntax? Head over to the <a href="/doc/metadata.html" style="color: #58a6ff;">Metadata Reference</a>.</p>
+  <p style="margin: 0; color: #f5f5f5;"><strong>Next Step:</strong> Ready to see the syntax? Head over to the <a href="/doc/metadata.html" style="color: #58a6ff;">Configuration & Metadata Reference</a>.</p>
 </div>
 
             </article>
@@ -330,9 +543,6 @@
 
         </main>
     </div>
-
-    <script type="module" src="/src/js/main.js"></script>
-
 </body>
 
 </html>

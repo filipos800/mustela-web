@@ -117,6 +117,7 @@ html as doc_style do
 
     .markdown-content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; font-family: var(--font-display); }
     .markdown-content h2 { font-size: 1.8rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .markdown-content h3 { margin: 2rem 0 1rem; }
     .markdown-content p { margin-bottom: 1.2rem; font-size: 1.05rem; color: #d1d5db; }
     
     li code {
@@ -147,6 +148,12 @@ html as doc_style do
         border-radius: 8px;
         overflow-x: auto;
         margin: 1.5rem 0;
+    }
+
+    .markdown-content .code-window pre {
+        background: none;
+        border: none;
+        margin: 0;
     }
 
     /* Footer */
@@ -209,8 +216,65 @@ html as doc_style do
         font-family: var(--font-mono);
     }
 
+    .meta-table strong {
+        color: @mustela_orange;
+    }
+
     .footer-links { margin-bottom: 1rem; }
     .footer-links a { color: var(--accent); text-decoration: none; margin-right: 1.5rem; }
+
+    @html[code_window]
+    @html[mu_style]
+
+    /* Fix pro seznamy v dokumentaci */
+    .table-wrapper ul, 
+    .table-wrapper ol,
+    main ul, 
+    main ol {
+        margin: 1rem 0;          /* Mezera nad a pod seznamem */
+        padding-left: 1.5rem;    /* Dostatečný prostor pro kuličky */
+        list-style-position: inside; /* Klíčová vlastnost: kuličky budou uvnitř kontejneru */
+    }
+
+    .table-wrapper li,
+    main li {
+        margin-bottom: 0.5rem;   /* Mezera mezi jednotlivými položkami, aby nebyly přilepené */
+        line-height: 1.6;        /* Lepší čitelnost textu */
+    }
+
+    /* Pokud chceš kuličky nechat vlevo, ale zajistit, aby nebyly v ořezu: */
+    ul {
+        list-style-position: outside; 
+        margin-left: 1rem; 
+    }
+
+    figure {
+        margin: 3rem auto;
+        max-width: 900px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #0d1117;
+    }
+
+    figure img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    figure figcaption {
+        margin-top: 1.5rem;
+        color: #8b949e;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        text-align: center;
+        max-width: 80%;
+    }
+
+    figure figcaption strong {
+        color: @mustela_orange;
+    }
 
     @media (max-width: 768px) {
         .layout-wrapper {
