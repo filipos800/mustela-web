@@ -29,3 +29,12 @@ html as note_div_end do
   </div>
 </div>
 end
+
+html as warning_start do
+<div style="border-left: 4px solid @mustela_orange; padding: 1rem 1.5rem; background: rgba(240, 108, 33, 0.1); margin: 2rem 0; border-radius: 4px;">
+  <p style="margin: 0; color: @mustela_orange; font-weight: 700;">⚠️
+end
+html as warning_end do
+  </p>
+</div>
+end

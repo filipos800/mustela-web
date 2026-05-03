@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HTML Blocks | Mustela</title>
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-
 <!-- Fonty pro moderní vzhled -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,15 +24,12 @@
         --accent: #58a6ff;
         --accent-glow: rgba(88, 166, 255, 0.15);
         --code-bg: #010409;
-
         /* Typografie */
         --font-main: 'Inter', sans-serif;
         --font-display: 'Urbanist', sans-serif;
         --font-mono: 'JetBrains Mono', monospace;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
         background-color: var(--bg-main);
         color: var(--text-primary);
@@ -42,13 +37,11 @@
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
     }
-
     /* Layout */
     .layout-wrapper {
         display: flex;
         min-height: 10vh;
     }
-
     /* Sidebar */
     .sidebar {
         width: 280px;
@@ -62,7 +55,6 @@
         height: 100vh;
         overflow-y: auto;
     }
-
     .logo {
         font-family: var(--font-display);
         font-size: 1.8rem;
@@ -72,9 +64,7 @@
         display: block;
         margin-bottom: 0.5rem;
     }
-
     .logo span { color: var(--accent); }
-
     .version-tag {
         font-family: var(--font-mono);
         font-size: 0.75rem;
@@ -85,7 +75,6 @@
         display: inline-block;
         margin-bottom: 2rem;
     }
-
     .nav-group { margin-bottom: 2rem; }
     .group-title {
         display: block;
@@ -96,7 +85,6 @@
         letter-spacing: 0.05em;
         margin-bottom: 0.75rem;
     }
-
     .sidebar-nav a {
         display: block;
         color: var(--text-secondary);
@@ -105,9 +93,7 @@
         transition: color 0.2s;
         font-size: 0.95rem;
     }
-
     .sidebar-nav a:hover { color: var(--accent); }
-
     /* Main Content */
     .content-container {
         flex: 1;
@@ -116,46 +102,37 @@
         margin: 0 auto;
         min-width: 0;
     }
-
     .breadcrumb {
         font-size: 0.85rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
     }
-
     .breadcrumb .active { color: var(--text-primary); }
-
     /* Markdown Styling */
     .markdown-content {
         overflow-wrap: break-word;
     }
-
     .markdown-content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; font-family: var(--font-display); }
     .markdown-content h2 { font-size: 1.8rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
     .markdown-content h3 { margin: 2rem 0 1rem; }
+    .markdown-content h4 { margin: 2rem 0 1rem; }
     .markdown-content p { margin-bottom: 1.2rem; font-size: 1.05rem; color: #d1d5db; }
-
     li code {
         background: var(--surface);
     }
-
     .markdown-content code {
         font-family: var(--font-mono);
-
         border-radius: 4px;
         font-size: 0.9rem;
         color: #e6edf3;
     }
-
     .markdown-content :not(pre) > code {
         padding: 2px 6px;
         background: var(--surface);
     }
-
     .markdown-content h2 code {
         font-size: 1.6rem;
     }
-
     .markdown-content pre {
         background: var(--code-bg);
         border: 1px solid var(--border);
@@ -164,13 +141,11 @@
         overflow-x: auto;
         margin: 1.5rem 0;
     }
-
     .markdown-content .code-window pre {
         background: none;
         border: none;
         margin: 0;
     }
-
     /* Footer */
     .doc-footer {
         margin-top: 5rem;
@@ -179,14 +154,12 @@
         color: var(--text-secondary);
         font-size: 0.85rem;
     }
-
     .markdown-content hr {
         height: 1px;
         background-color: var(--border);
         border: none;
         margin: 3rem 0;
     }
-
     /* table */
     .table-wrapper {
         width: 100%;
@@ -195,7 +168,6 @@
         border-radius: 8px;
         border: 1px solid var(--border);
     }
-
     .meta-table {
         width: 100%;
         border-collapse: collapse;
@@ -203,7 +175,6 @@
         font-size: 0.95rem;
         background-color: var(--bg-sidebar);
     }
-
     .meta-table th {
         background-color: var(--surface);
         color: var(--accent);
@@ -211,18 +182,15 @@
         font-weight: 600;
         border-bottom: 1px solid var(--border);
     }
-
     .meta-table td {
         padding: 1rem;
         border-bottom: 1px solid var(--border);
         color: var(--text-secondary);
         vertical-align: top;
     }
-
     .meta-table tr:last-child td {
         border-bottom: none;
     }
-
     .meta-table code {
         color: var(--text-primary);
         background: var(--surface);
@@ -230,21 +198,17 @@
         border-radius: 4px;
         font-family: var(--font-mono);
     }
-
     .meta-table strong {
         color: #f06c21;
     }
-
     .footer-links { margin-bottom: 1rem; }
     .footer-links a { color: var(--accent); text-decoration: none; margin-right: 1.5rem; }
-
     .code-window {
     background: #010409;
     border-radius: 10px;
     border: 1px solid #30363d;
     margin-top: 2rem;
 }
-
 .code-header {
     background: #161b22;
     padding: 0.75rem 1rem;
@@ -252,32 +216,26 @@
     align-items: center;
     gap: 8px;
 }
-
 .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
 }
-
 .red {
     background: #ff5f56;
 }
-
 .yellow {
     background: #ffbd2e;
 }
-
 .green {
     background: #27c93f;
 }
-
 .file-name {
     margin-left: 10px;
     font-size: 0.8rem;
     color: var(--text-dim);
     font-family: var(--mono-font);
 }
-
 .code-window pre {
     padding: 1.5rem;
     overflow-x: auto;
@@ -289,28 +247,23 @@
     color: #ff7b72;
     font-weight: bold;
 }
-
 /* meta, html, as, do, end */
 .mu-at {
     color: #79c0ff;
 }
-
 /* , Hub, en */
 .mu-string {
     color: #a5d6ff;
 }
-
 /* hodnoty za dvojtečkou */
 .mu-tag {
     color: #7ee787;
 }
-
 /* standardní HTML tagy */
 .mu-comment {
     color: #8b949e;
     font-style: italic;
 }
-
 
     /* Fix pro seznamy v dokumentaci */
     .table-wrapper ul, 
@@ -321,19 +274,16 @@
         padding-left: 1.5rem;    /* Dostatečný prostor pro kuličky */
         list-style-position: inside; /* Klíčová vlastnost: kuličky budou uvnitř kontejneru */
     }
-
     .table-wrapper li,
     main li {
         margin-bottom: 0.5rem;   /* Mezera mezi jednotlivými položkami, aby nebyly přilepené */
         line-height: 1.6;        /* Lepší čitelnost textu */
     }
-
     /* Pokud chceš kuličky nechat vlevo, ale zajistit, aby nebyly v ořezu: */
     ul {
         list-style-position: outside; 
         margin-left: 1rem; 
     }
-
     figure {
         margin: 3rem auto;
         max-width: 900px;
@@ -342,13 +292,11 @@
         align-items: center;
         background: #0d1117;
     }
-
     figure img {
         max-width: 100%;
         height: auto;
         border-radius: 4px;
     }
-
     figure figcaption {
         margin-top: 1.5rem;
         color: #8b949e;
@@ -357,20 +305,16 @@
         text-align: center;
         max-width: 80%;
     }
-
     figure figcaption strong {
         color: #f06c21;
     }
-
     a {
         color: #58a6ff;
     }
-
     @media (max-width: 768px) {
         .layout-wrapper {
             flex-direction: column;
         }
-
         .sidebar {
             width: 100%;
             min-width: 0;
@@ -379,15 +323,12 @@
             border-right: none;
             border-bottom: 1px solid var(--border);
         }
-
         .content-container {
             max-width: 100%;
             padding: 1.5rem;
             margin: 0;
         }
     }
-
-
 </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -401,7 +342,6 @@
         <a href="/" class="logo">Mustela<span>.</span></a>
         <div class="version-tag">v1.0.0-stable</div>
     </div>
-
     <nav class="sidebar-nav">
         <div class="nav-group">
             <span class="group-title">Getting Started</span>
@@ -416,12 +356,10 @@
     </nav>
 </aside>
 
-
         <main class="content-container">
             <nav class="breadcrumb">
-                Docs / <span class="active">DSL Reference</span>
+                Docs / <span class="active">Introduction</span>
             </nav>
-
             <article class="markdown-content">
                 <h1>🧱 HTML Blocks</h1>
 <p>In Mustela, HTML blocks are where raw data meets design. While Markdown handles your content, HTML blocks define the <strong>structure</strong> and <strong>logic</strong> of your site.</p>
@@ -437,38 +375,111 @@
 <p>Mustela recognizes two ways to define HTML, each serving a different purpose in your workflow.</p>
 <h3>1.1 Direct Injection (<code>html do</code>)</h3>
 <p>The standard <code>html do</code> block is used directly inside your <code>.md</code> files. It acts as a portal that allows you to use variables and custom tags right in the middle of your content.</p>
-<pre><code class="language-mu">html do
-&lt;div class=&quot;author-card&quot;&gt;
-  &lt;p&gt;Written by: &lt;strong&gt;@author&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-end</code></pre>
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">article.md</span>
+    </div>
+    <pre><code><span class="mu-keyword">html do</span>
+<span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"author-card"</span><span class="mu-tag">&gt;</span>
+  <span class="mu-tag">&lt;p&gt;</span>Written by: <span class="mu-tag">&lt;strong&gt;</span><span class="mu-at">&commat;author</span><span class="mu-tag">&lt;/strong&gt;&lt;/p&gt;</span>
+<span class="mu-tag">&lt;/div&gt;</span>
+<span class="mu-keyword">end</span></code></pre>
+</div>
+
 <h3>1.2 Named Templates (<code>html as &lt;name&gt; do</code>)</h3>
 <p>Named blocks are the building blocks of your theme. Once defined (usually in your <code>templates/</code> folder), they can be summoned anywhere using the <code>@html[name]</code> syntax.</p>
-<pre><code class="language-mu">html as footer do
-&lt;footer class=&quot;site-footer&quot;&gt;
-  &lt;p&gt;&amp;copy; @current_year @title&lt;/p&gt;
-&lt;/footer&gt;
-end</code></pre>
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">layout.mu</span>
+    </div>
+    <pre><code><span class="mu-keyword">html as footer do</span>
+<span class="mu-tag">&lt;footer</span> <span class="mu-at">class=</span><span class="mu-string">"site-footer"</span><span class="mu-tag">&gt;</span>
+  <span class="mu-tag">&lt;p&gt;</span>&amp;copy; <span class="mu-at">&commat;current_year</span> <span class="mu-at">&commat;title</span><span class="mu-tag">&lt;/p&gt;</span>
+<span class="mu-tag">&lt;/footer&gt;</span>
+<span class="mu-keyword">end</span></code></pre>
+</div>
+
 <h3>1.3 Local Template Definitions (Testing Only)</h3>
 <p>While named blocks (<code>html as name do</code>) are typically defined in your template files, Mustela allows you to define them directly inside a Markdown file.</p>
-<blockquote>
-<p><strong>However, this is strongly discouraged for production use.</strong></p>
-</blockquote>
+<div style="border-left: 4px solid #f06c21; padding: 1rem 1.5rem; background: rgba(240, 108, 33, 0.1); margin: 2rem 0; border-radius: 4px;">
+  <p style="margin: 0; color: #f06c21; font-weight: 700;">⚠️
+
+However, this is strongly discouraged for production use.
+  </p>
+</div>
+
 <p>Defining templates inside Markdown is intended strictly for <strong>rapid prototyping and testing</strong>. It allows you to experiment with a new component&#39;s logic without jumping between directories.</p>
 <h3>CLI Warnings</h3>
 <p>Mustela&#39;s engine prioritizes clarity. If you define a named block within a Markdown file, the CLI will issue a warning during the build process:</p>
 <pre><code class="language-bash">10:23:32 AM [mustela] TRANSLATE | ./content/doc/html-blocks.md
 [WARNING] Local template &quot;pro_tip_start&quot; defined in Markdown (doc/html-blocks.md).</code></pre>
-<h3>Why you should avoid this:</h3>
+<h4>Why you should avoid this:</h4>
 <ul>
   <li><strong>Global Namespace Pollution:</strong> You might accidentally overwrite a global template, leading to inconsistent behavior across your site.</li>
   <li><strong>Maintenance Debt:</strong> Logic hidden inside content files is hard to find and update later.</li>
   <li><strong>Architectural Purity:</strong> Keep your design in <code>templates/</code> and your stories in <code>content/</code>.</li>
   <li><strong>Recommendation:</strong> Once your locally defined block works exactly how you want, move its definition to your global template files and remove it from the Markdown.</li>
 </ul>
+<h3>1.4 The Magic <code>@view</code> Variable</h3>
+<p>The <code>@view</code> variable is a special, <strong>engine-reserved constant</strong>. It acts as the ultimate placeholder where your transpiled Markdown content is injected into the HTML structure. Without <code>@view</code>, your templates would be empty shells.</p>
+<h4>How it works:</h4>
+<ul>
+  <li>Mustela converts your Markdown into a &quot;clean&quot; HTML string in RAM.</li>
+  <li>It looks for the <code>@view</code> placeholder in your entry-point template (defined by <code>index</code>).</li>
+  <li>It injects the content directly into that spot.</li>
+</ul>
+<h4>Practical Usage:</h4>
+<p>Typically, you will place <code>@view</code> inside your main body block:</p>
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">main.mu</span>
+    </div>
+    <pre><code><span class="mu-keyword">html as body do</span>
+<span class="mu-tag">&lt;body&gt;</span>
+  <span class="mu-at">&commat;html[navigation]</span>
+  <span class="mu-tag">&lt;main</span> <span class="mu-at">class=</span><span class="mu-string">"content-wrapper"</span><span class="mu-tag">&gt;</span>
+    <span class="mu-at">&commat;view</span>  <span class="mu-comment">&lt;!-- Your Markdown article appears here --&gt;</span>
+  <span class="mu-tag">&lt;/main&gt;</span>
+  <span class="mu-at">&commat;html[footer]</span>
+<span class="mu-tag">&lt;/body&gt;</span>
+<span class="mu-keyword">end</span></code></pre>
+</div>
+
+<h4>Multi-Block Power:</h4>
+<p>You can call <code>@view</code> inside any number of different HTML blocks. This is useful when you need to render the same content into different parts of your layout (e.g., a desktop view, a mobile-specific container, or a specialized SEO-only block).</p>
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">responsive.mu</span>
+    </div>
+    <pre><code><span class="mu-keyword">html as desktop_layout do</span>
+  <span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"desktop"</span><span class="mu-tag">&gt;</span><span class="mu-at">&commat;view</span><span class="mu-tag">&lt;/div&gt;</span>
+<span class="mu-keyword">end</span>
+<span class="mu-keyword">html as mobile_layout do</span>
+  <span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"mobile"</span><span class="mu-tag">&gt;</span><span class="mu-at">&commat;view</span><span class="mu-tag">&lt;/div&gt;</span>
+<span class="mu-keyword">end</span></code></pre>
+</div>
+
+<h4>Important Restrictions:</h4>
+<ul>
+  <li><strong>Context Only:</strong> <code>@view</code> is only available within HTML blocks.</li>
+  <li><strong>Immutable:</strong> You cannot overwrite the value of <code>@view</code> in your <code>meta</code> or <code>config</code> blocks. It is strictly managed by the Mustela engine.</li>
+  <li><strong>Recursion:</strong> You can pass <code>@view</code> into other named blocks, but it still counts towards the <strong>20-level recursion limit</strong>.</li>
+</ul>
 <h2>2. The &quot;Sandwich&quot; Pattern (Structural Wrappers)</h2>
 <p>Because Mustela processes files as a continuous data stream, you can split a single HTML element across two blocks. This allows you to &quot;wrap&quot; standard Markdown content inside complex HTML structures.</p>
-<h4>Example: Creating a Callout Box</h4>
+<h4>Example:</h4>
 <div class="code-window" style="margin-bottom: 2rem;">
     <div class="code-header">
         <span class="dot red"></span>
@@ -480,7 +491,6 @@ end</code></pre>
 <span class="mu-tag">&lt;div</span> <span class="mu-string">class="custom-callout"</span> <span class="mu-string">style="border-left: 4px solid </span><span class="mu-at">@accent_color</span><span class="mu-string">;"</span><span class="mu-tag">&gt;</span>
   <span class="mu-tag">&lt;div</span> <span class="mu-string">class="callout-inner"</span><span class="mu-tag">&gt;</span>
 <span class="mu-keyword">end</span>
-
 <span class="mu-keyword">html</span> <span class="mu-keyword">as</span> <span class="mu-string">callout_end</span> <span class="mu-keyword">do</span>
   <span class="mu-tag">&lt;/div&gt;</span>
 <span class="mu-tag">&lt;/div&gt;</span>
@@ -497,10 +507,8 @@ end</code></pre>
     <pre><code><span class="mu-keyword">html do</span>
 <span class="mu-at">&commat;html[callout_start]</span>
 <span class="mu-keyword">end</span>
-
 <strong>**This is Markdown!**</strong> Even though it's physically between two HTML calls, 
 Mustela renders it perfectly because the stream remains open.
-
 <span class="mu-keyword">html do</span>
 <span class="mu-at">&commat;html[callout_end]</span>
 <span class="mu-keyword">end</span></code></pre>
@@ -524,7 +532,6 @@ Mustela renders it perfectly because the stream remains open.
 </ul>
 
             </article>
-
             <footer class="doc-footer">
     <div class="footer-links">
         <a href="https://github.com/filipos800/mustela-web">GitHub</a>

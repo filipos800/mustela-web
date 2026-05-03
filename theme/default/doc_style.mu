@@ -118,6 +118,7 @@ html as doc_style do
     .markdown-content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; font-family: var(--font-display); }
     .markdown-content h2 { font-size: 1.8rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
     .markdown-content h3 { margin: 2rem 0 1rem; }
+    .markdown-content h4 { margin: 2rem 0 1rem; }
     .markdown-content p { margin-bottom: 1.2rem; font-size: 1.05rem; color: #d1d5db; }
     
     li code {

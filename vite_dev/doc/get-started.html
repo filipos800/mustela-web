@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Getting Started | Mustela</title>
-
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
-
 <!-- Fonty pro moderní vzhled -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,15 +24,12 @@
         --accent: #58a6ff;
         --accent-glow: rgba(88, 166, 255, 0.15);
         --code-bg: #010409;
-
         /* Typografie */
         --font-main: 'Inter', sans-serif;
         --font-display: 'Urbanist', sans-serif;
         --font-mono: 'JetBrains Mono', monospace;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
         background-color: var(--bg-main);
         color: var(--text-primary);
@@ -42,13 +37,11 @@
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
     }
-
     /* Layout */
     .layout-wrapper {
         display: flex;
         min-height: 10vh;
     }
-
     /* Sidebar */
     .sidebar {
         width: 280px;
@@ -62,7 +55,6 @@
         height: 100vh;
         overflow-y: auto;
     }
-
     .logo {
         font-family: var(--font-display);
         font-size: 1.8rem;
@@ -72,9 +64,7 @@
         display: block;
         margin-bottom: 0.5rem;
     }
-
     .logo span { color: var(--accent); }
-
     .version-tag {
         font-family: var(--font-mono);
         font-size: 0.75rem;
@@ -85,7 +75,6 @@
         display: inline-block;
         margin-bottom: 2rem;
     }
-
     .nav-group { margin-bottom: 2rem; }
     .group-title {
         display: block;
@@ -96,7 +85,6 @@
         letter-spacing: 0.05em;
         margin-bottom: 0.75rem;
     }
-
     .sidebar-nav a {
         display: block;
         color: var(--text-secondary);
@@ -105,9 +93,7 @@
         transition: color 0.2s;
         font-size: 0.95rem;
     }
-
     .sidebar-nav a:hover { color: var(--accent); }
-
     /* Main Content */
     .content-container {
         flex: 1;
@@ -116,46 +102,37 @@
         margin: 0 auto;
         min-width: 0;
     }
-
     .breadcrumb {
         font-size: 0.85rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
     }
-
     .breadcrumb .active { color: var(--text-primary); }
-
     /* Markdown Styling */
     .markdown-content {
         overflow-wrap: break-word;
     }
-
     .markdown-content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; font-family: var(--font-display); }
     .markdown-content h2 { font-size: 1.8rem; margin: 2rem 0 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
     .markdown-content h3 { margin: 2rem 0 1rem; }
+    .markdown-content h4 { margin: 2rem 0 1rem; }
     .markdown-content p { margin-bottom: 1.2rem; font-size: 1.05rem; color: #d1d5db; }
-
     li code {
         background: var(--surface);
     }
-
     .markdown-content code {
         font-family: var(--font-mono);
-
         border-radius: 4px;
         font-size: 0.9rem;
         color: #e6edf3;
     }
-
     .markdown-content :not(pre) > code {
         padding: 2px 6px;
         background: var(--surface);
     }
-
     .markdown-content h2 code {
         font-size: 1.6rem;
     }
-
     .markdown-content pre {
         background: var(--code-bg);
         border: 1px solid var(--border);
@@ -164,13 +141,11 @@
         overflow-x: auto;
         margin: 1.5rem 0;
     }
-
     .markdown-content .code-window pre {
         background: none;
         border: none;
         margin: 0;
     }
-
     /* Footer */
     .doc-footer {
         margin-top: 5rem;
@@ -179,14 +154,12 @@
         color: var(--text-secondary);
         font-size: 0.85rem;
     }
-
     .markdown-content hr {
         height: 1px;
         background-color: var(--border);
         border: none;
         margin: 3rem 0;
     }
-
     /* table */
     .table-wrapper {
         width: 100%;
@@ -195,7 +168,6 @@
         border-radius: 8px;
         border: 1px solid var(--border);
     }
-
     .meta-table {
         width: 100%;
         border-collapse: collapse;
@@ -203,7 +175,6 @@
         font-size: 0.95rem;
         background-color: var(--bg-sidebar);
     }
-
     .meta-table th {
         background-color: var(--surface);
         color: var(--accent);
@@ -211,18 +182,15 @@
         font-weight: 600;
         border-bottom: 1px solid var(--border);
     }
-
     .meta-table td {
         padding: 1rem;
         border-bottom: 1px solid var(--border);
         color: var(--text-secondary);
         vertical-align: top;
     }
-
     .meta-table tr:last-child td {
         border-bottom: none;
     }
-
     .meta-table code {
         color: var(--text-primary);
         background: var(--surface);
@@ -230,21 +198,17 @@
         border-radius: 4px;
         font-family: var(--font-mono);
     }
-
     .meta-table strong {
         color: #f06c21;
     }
-
     .footer-links { margin-bottom: 1rem; }
     .footer-links a { color: var(--accent); text-decoration: none; margin-right: 1.5rem; }
-
     .code-window {
     background: #010409;
     border-radius: 10px;
     border: 1px solid #30363d;
     margin-top: 2rem;
 }
-
 .code-header {
     background: #161b22;
     padding: 0.75rem 1rem;
@@ -252,32 +216,26 @@
     align-items: center;
     gap: 8px;
 }
-
 .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
 }
-
 .red {
     background: #ff5f56;
 }
-
 .yellow {
     background: #ffbd2e;
 }
-
 .green {
     background: #27c93f;
 }
-
 .file-name {
     margin-left: 10px;
     font-size: 0.8rem;
     color: var(--text-dim);
     font-family: var(--mono-font);
 }
-
 .code-window pre {
     padding: 1.5rem;
     overflow-x: auto;
@@ -289,28 +247,23 @@
     color: #ff7b72;
     font-weight: bold;
 }
-
 /* meta, html, as, do, end */
 .mu-at {
     color: #79c0ff;
 }
-
 /* , Hub, en */
 .mu-string {
     color: #a5d6ff;
 }
-
 /* hodnoty za dvojtečkou */
 .mu-tag {
     color: #7ee787;
 }
-
 /* standardní HTML tagy */
 .mu-comment {
     color: #8b949e;
     font-style: italic;
 }
-
 
     /* Fix pro seznamy v dokumentaci */
     .table-wrapper ul, 
@@ -321,19 +274,16 @@
         padding-left: 1.5rem;    /* Dostatečný prostor pro kuličky */
         list-style-position: inside; /* Klíčová vlastnost: kuličky budou uvnitř kontejneru */
     }
-
     .table-wrapper li,
     main li {
         margin-bottom: 0.5rem;   /* Mezera mezi jednotlivými položkami, aby nebyly přilepené */
         line-height: 1.6;        /* Lepší čitelnost textu */
     }
-
     /* Pokud chceš kuličky nechat vlevo, ale zajistit, aby nebyly v ořezu: */
     ul {
         list-style-position: outside; 
         margin-left: 1rem; 
     }
-
     figure {
         margin: 3rem auto;
         max-width: 900px;
@@ -342,13 +292,11 @@
         align-items: center;
         background: #0d1117;
     }
-
     figure img {
         max-width: 100%;
         height: auto;
         border-radius: 4px;
     }
-
     figure figcaption {
         margin-top: 1.5rem;
         color: #8b949e;
@@ -357,20 +305,16 @@
         text-align: center;
         max-width: 80%;
     }
-
     figure figcaption strong {
         color: #f06c21;
     }
-
     a {
         color: #58a6ff;
     }
-
     @media (max-width: 768px) {
         .layout-wrapper {
             flex-direction: column;
         }
-
         .sidebar {
             width: 100%;
             min-width: 0;
@@ -379,15 +323,12 @@
             border-right: none;
             border-bottom: 1px solid var(--border);
         }
-
         .content-container {
             max-width: 100%;
             padding: 1.5rem;
             margin: 0;
         }
     }
-
-
 </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -401,7 +342,6 @@
         <a href="/" class="logo">Mustela<span>.</span></a>
         <div class="version-tag">v1.0.0-stable</div>
     </div>
-
     <nav class="sidebar-nav">
         <div class="nav-group">
             <span class="group-title">Getting Started</span>
@@ -416,12 +356,10 @@
     </nav>
 </aside>
 
-
         <main class="content-container">
             <nav class="breadcrumb">
                 Docs / <span class="active">Introduction</span>
             </nav>
-
             <article class="markdown-content">
                 <h1>🚀 Getting Started with Mustela</h1>
 <p>Mustela is designed for extreme speed and simplicity. The entire process from installation to your first published site takes less than a minute.</p>
@@ -429,10 +367,8 @@
 <p>Mustela is distributed as a single, 400KB statically linked binary with zero dependencies.</p>
 <pre><code class="language-bash"># Download the binary (example for Linux)
 curl -L https://mustela.vercel.app/linux/mustela -o mustela
-
 # Make it executable
 chmod +x mustela
-
 # Move it to your PATH
 sudo mv mustela /usr/local/bin/</code></pre>
 <h2>2. Initialize Your Project</h2>
@@ -470,7 +406,6 @@ Try editing your template in <code>templates/default/main.mu</code> while <code>
 
 
             </article>
-
             <footer class="doc-footer">
     <div class="footer-links">
         <a href="https://github.com/filipos800/mustela-web">GitHub</a>

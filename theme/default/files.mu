@@ -76,3 +76,75 @@ Mustela renders it perfectly because the stream remains open.
 <span class="mu-keyword">end</span></code></pre>
 </div>
 end
+
+html as file_html_blocks_author_card do
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">article.md</span>
+    </div>
+    <pre><code><span class="mu-keyword">html do</span>
+<span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"author-card"</span><span class="mu-tag">&gt;</span>
+  <span class="mu-tag">&lt;p&gt;</span>Written by: <span class="mu-tag">&lt;strong&gt;</span><span class="mu-at">&commat;author</span><span class="mu-tag">&lt;/strong&gt;&lt;/p&gt;</span>
+<span class="mu-tag">&lt;/div&gt;</span>
+<span class="mu-keyword">end</span></code></pre>
+</div>
+end
+
+html as file_html_blocks_footer do
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">layout.mu</span>
+    </div>
+    <pre><code><span class="mu-keyword">html as footer do</span>
+<span class="mu-tag">&lt;footer</span> <span class="mu-at">class=</span><span class="mu-string">"site-footer"</span><span class="mu-tag">&gt;</span>
+  <span class="mu-tag">&lt;p&gt;</span>&amp;copy; <span class="mu-at">&commat;current_year</span> <span class="mu-at">&commat;title</span><span class="mu-tag">&lt;/p&gt;</span>
+<span class="mu-tag">&lt;/footer&gt;</span>
+<span class="mu-keyword">end</span></code></pre>
+</div>
+end
+
+html as file_html_blocks_body_block do
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">main.mu</span>
+    </div>
+    <pre><code><span class="mu-keyword">html as body do</span>
+<span class="mu-tag">&lt;body&gt;</span>
+  <span class="mu-at">&commat;html[navigation]</span>
+  
+  <span class="mu-tag">&lt;main</span> <span class="mu-at">class=</span><span class="mu-string">"content-wrapper"</span><span class="mu-tag">&gt;</span>
+    <span class="mu-at">&commat;view</span>  <span class="mu-comment">&lt;!-- Your Markdown article appears here --&gt;</span>
+  <span class="mu-tag">&lt;/main&gt;</span>
+
+  <span class="mu-at">&commat;html[footer]</span>
+<span class="mu-tag">&lt;/body&gt;</span>
+<span class="mu-keyword">end</span></code></pre>
+</div>
+end
+
+html as file_html_blocks_layouts do
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">responsive.mu</span>
+    </div>
+    <pre><code><span class="mu-keyword">html as desktop_layout do</span>
+  <span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"desktop"</span><span class="mu-tag">&gt;</span><span class="mu-at">&commat;view</span><span class="mu-tag">&lt;/div&gt;</span>
+<span class="mu-keyword">end</span>
+
+<span class="mu-keyword">html as mobile_layout do</span>
+  <span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"mobile"</span><span class="mu-tag">&gt;</span><span class="mu-at">&commat;view</span><span class="mu-tag">&lt;/div&gt;</span>
+<span class="mu-keyword">end</span></code></pre>
+</div>
+end
