@@ -148,3 +148,39 @@ html as file_html_blocks_layouts do
 <span class="mu-keyword">end</span></code></pre>
 </div>
 end
+
+html as file_markdown_grand_finale do
+<div class="code-window">
+    <div class="code-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="file-name">advanced-guide.md</span>
+    </div>
+    <pre style="white-space: pre-wrap; word-wrap: break-word;"><code><span class="mu-keyword">meta do</span>
+  title:  <span class="mu-string">"The Hybrid Power"</span>
+  author: <span class="mu-string">"@author"</span>
+  index:  <span class="mu-string">article</span>
+<span class="mu-keyword">end</span>
+
+<br># Mixing Markdown & Mustela<br>
+This is standard Markdown text. But wait, we can inject logic:<br>
+
+<span class="mu-keyword">html do</span>
+<span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"special-callout"</span><span class="mu-tag">&gt;</span>
+  <span class="mu-tag">&lt;h4&gt;</span>🦦 Mustela Insight<span class="mu-tag">&lt;/h4&gt;</span>
+  <span class="mu-tag">&lt;p&gt;</span>You are reading a variable: <span class="mu-tag">&lt;strong&gt;</span><span class="mu-at">&commat;author</span><span class="mu-tag">&lt;/strong&gt;&lt;/p&gt;</span>
+<span class="mu-tag">&lt;/div&gt;</span>
+<span class="mu-keyword">end</span>
+
+<br>Back to Markdown. Even <strong>**bold text**</strong> or [links](/doc/concepts.html) work perfectly here.<br>
+
+<span class="mu-keyword">html do</span>
+<span class="mu-tag">&lt;script&gt;</span>
+  console.log("Mustela injected this script specifically for this page!");
+<span class="mu-tag">&lt;/script&gt;</span>
+<span class="mu-keyword">end</span>
+
+</code></pre>
+</div>
+end

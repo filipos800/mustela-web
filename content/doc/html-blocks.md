@@ -1,6 +1,9 @@
 meta do
   title:  "HTML Blocks"
   index:  document
+  doc_section: "DSL Reference"
+  description: "Master Mustela's HTML blocks: From direct injection and named templates to the powerful Sandwich Pattern for structural wrappers."
+  keywords: "Mustela HTML blocks, templating engine, sandwich pattern, variable injection, static site generator layouts"
 end
 
 # 🧱 HTML Blocks
@@ -39,7 +42,7 @@ While named blocks (`html as name do`) are typically defined in your template fi
 
 html do
 @html[warning_start]
-However, this is strongly discouraged for production use.
+<strong>However, this is strongly discouraged for production use.</strong>
 @html[warning_end]
 end
 

@@ -207,3 +207,100 @@ html as table_date_format do
     </table>
 </div>
 end
+
+html as table_markdown_features do
+<div class="table-wrapper">
+    <table class="meta-table">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Support</th>
+                <th>Technical Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Headers</strong></td>
+                <td><code>#</code> to <code>######</code></td>
+                <td>Supports nested formatting (e.g. <code># **Bold** Title</code>).</td>
+            </tr>
+            <tr>
+                <td><strong>Emphasis</strong></td>
+                <td><code>*</code> and <code>**</code></td>
+                <td>Fully nestable: <code>***Bold & Italic***</code> works as expected.</td>
+            </tr>
+            <tr>
+                <td><strong>Blockquotes</strong></td>
+                <td><code>&gt;</code></td>
+                <td>Supports all other inline Markdown features inside.</td>
+            </tr>
+            <tr>
+                <td><strong>Code Spans</strong></td>
+                <td><code>`inline`</code></td>
+                <td>Preserves backticks and raw characters.</td>
+            </tr>
+            <tr>
+                <td><strong>Code Blocks</strong></td>
+                <td><code>```</code></td>
+                <td>Standard fenced blocks for code snippets.</td>
+            </tr>
+            <tr>
+                <td><strong>Links</strong></td>
+                <td><code>[text](url)</code></td>
+                <td>Supports titles and internal project links.</td>
+            </tr>
+            <tr>
+                <td><strong>Images</strong></td>
+                <td><code>![alt](url)</code></td>
+                <td>Renders as standard <code>&lt;img&gt;</code> tags.</td>
+            </tr>
+            <tr>
+                <td><strong>Rules</strong></td>
+                <td><code>---</code></td>
+                <td>Generates a clean <code>&lt;hr&gt;</code> separator.</td>
+            </tr>
+            <tr>
+                <td><strong>Lists</strong></td>
+                <td><code>*</code> or <code>1.</code></td>
+                <td>Bullet and numbered lists. <strong>Nested lists are not supported</strong> (they will break the group).</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+end
+
+html as table_markdown_optimization do
+<div class="table-wrapper">
+    <table class="meta-table">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Status</th>
+                <th>Recommendation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Nested Lists</strong></td>
+                <td style="color: #ff7b72;">❌ Unsupported</td>
+                <td>Keep your structures flat for better readability and 9,000+ p/s throughput.</td>
+            </tr>
+            <tr>
+                <td><strong>Markdown Tables</strong></td>
+                <td style="color: #ff7b72;">❌ Unsupported</td>
+                <td>Use <code>html do</code> blocks. They are more flexible, accessible, and easier to style.</td>
+            </tr>
+            <tr>
+                <td><strong>Footnotes</strong></td>
+                <td style="color: #ff7b72;">❌ Unsupported</td>
+                <td>Use inline links or a dedicated "References" section at the bottom of your document.</td>
+            </tr>
+            <tr>
+                <td><strong>Task Lists</strong></td>
+                <td style="color: #ff7b72;">❌ Unsupported</td>
+                <td>Use standard bullet points or <code>html do</code> for custom interactive checklists.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+end

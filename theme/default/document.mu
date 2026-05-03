@@ -57,6 +57,7 @@ html as doc_sidebar do
             <span class="group-title">DSL Reference</span>
             <a href="/doc/metadata.html">Metadata</a>
             <a href="/doc/html-blocks.html">HTML Blocks</a>
+            <a href="/doc/markdown.html">Markdown</a>
         </div>
     </nav>
 </aside>
@@ -70,4 +71,26 @@ html as doc_footer do
     </div>
     <p>© 2026 Mustela Engine. Built with extreme speed.</p>
 </footer>
+end
+
+html as markdown_handling_characters do
+<section style="margin: 3rem 0; padding: 1.5rem; border: 1px dashed var(--border); border-radius: 8px; background: rgba(88, 166, 255, 0.03);">
+    <h2 style="margin-top: 0; border-bottom: none; font-size: 1.4rem;">🛡️ Handling Special Characters</h2>
+    <p>Mustela’s variable engine is smart enough to distinguish between a DSL trigger and common text (like emails). However, if you need to be explicit, here is how to handle it:</p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+        <div>
+            <h4 style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 0.5rem;">In Markdown</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Use a backslash to escape formatting:</p>
+            <pre style="padding: 1rem;"><code>\# Not a header
+\*Not italic\*</code></pre>
+        </div>
+        <div>
+            <h4 style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 0.5rem;">In HTML Blocks</h4>
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Use HTML entities to prevent variable injection:</p>
+            <pre style="padding: 1rem; background: var(--surface);"><code>&lt;span&gt;&amp;#64;handle&lt;/span&gt; 
+<span class="mu-comment">&lt;!-- Renders as @handle --&gt;</span></code></pre>
+        </div>
+    </div>
+</section>
 end
