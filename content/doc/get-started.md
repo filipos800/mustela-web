@@ -64,8 +64,7 @@ mustela watch
 ```
 
 html do
-<div style="background: #161b22; border: 1px solid #30363d; padding: 2rem; border-radius: 12px; margin-top: 3rem;">
-<h3 style="color: #58a6ff; margin-bottom: 0.5rem;">💡 Pro Tip</h3>
-<p style="color: #8b949e;">Try editing your template in <code>templates/default/main.mu</code> while <code>mustela watch</code> is running. You will see all 5,000 pages rebuild before you can even finish a blink.</p>
-</div>
+@html[pro_tip_start]
+Try editing your template in <code>templates/default/main.mu</code> while <code>mustela watch</code> is running. You will see all 5,000 pages rebuild before you can even finish a blink.
+@html[pro_tip_end]
 end

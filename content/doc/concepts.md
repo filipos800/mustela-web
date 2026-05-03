@@ -59,44 +59,13 @@ Mustela isn't just fast; it's engineered for extreme throughput.
 ### Benchmark Results (Real-world content):
 
 html do
-<div class="table-wrapper">
-    <table class="meta-table">
-        <thead>
-            <tr>
-                <th>Metric</th>
-                <th>Result</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Files Processed</strong></td>
-                <td>5,000 Markdown files</td>
-            </tr>
-            <tr>
-                <td><strong>Total Build Time</strong></td>
-                <td><strong>528 ms</strong> (0.5 seconds)</td>
-            </tr>
-            <tr>
-                <td><strong>Throughput</strong></td>
-                <td>~9,470 pages / second</td>
-            </tr>
-            <tr>
-                <td><strong>Peak RAM Usage</strong></td>
-                <td><strong>34.6 MB</strong></td>
-            </tr>
-            <tr>
-                <td><strong>CPU Efficiency</strong></td>
-                <td>131% (Multi-threaded I/O)</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+@html[benchmark_table]
 end
 
 html do
-<div style="border-left: 4px solid #58a6ff; padding: 1rem 1.5rem; background: #161b22; margin: 2rem 0;">
-  <p style="margin: 0; color: #f5f5f5;"><strong>Note:</strong> Building 5,000 pages in half a second means your site is ready before your monitor can even finish its next refresh cycle.</p>
-</div>
+@html[note_blue_start]
+<strong>Note:</strong> Building 5,000 pages in half a second means your site is ready before your monitor can even finish its next refresh cycle.
+@html[note_end]
 end
 
 ### 4.1 Real-world Build Output:
@@ -139,7 +108,7 @@ end
 ---
 
 html do
-<div style="border-left: 4px solid @mustela_orange; padding: 1rem 1.5rem; background: #161b22; margin: 2rem 0;">
-  <p style="margin: 0; color: #f5f5f5;"><strong>Next Step:</strong> Ready to see the syntax? Head over to the <a href="/doc/metadata.html" style="color: #58a6ff;">Configuration & Metadata Reference</a>.</p>
-</div>
+@html[note_orange_start]
+<strong>Next Step:</strong> Ready to see the syntax? Head over to the <a href="/doc/metadata.html">Configuration & Metadata Reference</a>.
+@html[note_end]
 end

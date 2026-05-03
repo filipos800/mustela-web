@@ -276,6 +276,10 @@ html as doc_style do
         color: @mustela_orange;
     }
 
+    a {
+        color: #58a6ff;
+    }
+
     @media (max-width: 768px) {
         .layout-wrapper {
             flex-direction: column;
