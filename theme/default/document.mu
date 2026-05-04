@@ -94,3 +94,14 @@ html as markdown_handling_characters do
     </div>
 </section>
 end
+
+html as code_blog_install do
+<pre><code class="language-bash"># Download the binary (example for Linux)
+curl -L @base_url/linux/mustela -o mustela
+
+# Make it executable
+chmod +x mustela
+
+# Move it to your PATH
+sudo mv mustela /usr/local/bin/</code></pre>
+end

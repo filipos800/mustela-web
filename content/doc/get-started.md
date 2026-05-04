@@ -10,11 +10,19 @@ end
 Mustela is designed for extreme speed and simplicity. The entire process from installation to your first published site takes less than a minute.
 
 ## 1. Installation
+
+html do
+<div style="background: rgba(88, 166, 255, 0.1); border-left: 4px solid #58a6ff; padding: 1rem; margin-bottom: 2rem; border-radius: 0 8px 8px 0;">
+  <strong style="color: #58a6ff;">🚀 Release Status: Final Polishing</strong><br>
+  Mustela is currently in its final stress-testing phase. The stable binary (v1.0.0) is scheduled for release by <strong>the end of May 2026</strong> (or sooner). 
+</div>
+end
+
 Mustela is distributed as a single, 400KB statically linked binary with zero dependencies.
 
 html do
-<pre><code class="language-bash"># Download the binary (example for Linux)
-curl -L @base_url/linux/mustela -o mustela
+<pre><code class="language-bash"># 🚧 Links will be active soon (End of May)
+# curl -L @base_url/linux/mustela -o mustela
 
 # Make it executable
 chmod +x mustela
