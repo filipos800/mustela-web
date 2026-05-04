@@ -130,7 +130,7 @@ html as ecosystem do
         <!-- Terminal Scaffolding Prompt -->
         <div class="terminal-hint">
             <span class="terminal-comment">// Spin up a Vite-ready workspace</span>
-            <span class="terminal-command">$ mustela init --template vite</span>
+            <span class="terminal-command">$ mustela init --preset vite</span>
         </div>
     </div>
 </section>
