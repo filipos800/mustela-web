@@ -34,7 +34,7 @@ html as main_style do
   }
 
   .hero {
-    padding: 8rem 0 4rem;
+    padding: 5rem 0 3rem;
     text-align: center;
   }
 
@@ -103,7 +103,6 @@ html as main_style do
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
-    margin: 4rem 0;
   }
 
   .card {
@@ -132,10 +131,6 @@ html as main_style do
   .card p {
     color: var(--text-dim);
     font-size: 0.9rem;
-  }
-
-  .benchmarks {
-    margin: 6rem 0;
   }
 
   h2 {
@@ -272,10 +267,6 @@ html as main_style do
     }
   }
 
-  .architecture-3d-section {
-    padding: 6rem 0;
-  }
-
   .pipeline-dashboard {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -370,6 +361,13 @@ html as main_style do
   }
 
   @html[style_ecosystem]
+  @html[style_manifesto]
+
+  section {
+    padding: 5rem 0; /* Místo 8rem */
+    border-bottom: 1px solid #30363d;
+    width: 100%;
+  }
 
   @media (max-width: 900px) {
       .pipeline-dashboard {
@@ -384,7 +382,65 @@ html as main_style do
 </style>
 end
 
+html as style_manifesto do
 
+.manifesto {
+  padding: 5rem 0;
+  background: #0d1117;
+}
+
+.manifesto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.manifesto-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-align: left; /* Tady to musí být doleva! */
+}
+
+.manifesto-content p {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+}
+
+.manifesto-list {
+    list-style: none;
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+}
+
+.manifesto-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* Zelené pluska pro výhody */
+.li-pro::before { content: "+"; position: absolute; left: 0; color: #39d353; }
+/* Oranžové mínuska pro varování - ladí s logem */
+.li-warn::before { content: "-"; position: absolute; left: 0; color: #f06c21; }
+
+.hugo-exit {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .manifesto-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+end
 
 
 html as style_ecosystem do

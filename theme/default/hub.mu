@@ -1,12 +1,47 @@
+meta do
+    binary_size: 1.3 MB
+end
+
 html as hub do
 <main class="container">
     @html[features]
+    @html[manifesto]
     @html[performance]
     @html[dsl]
     @html[ecosystem]
     @html[architecture]
     @html[licensing]
 </main>
+end
+
+html as manifesto do
+<section class="manifesto">
+    <div class="container">
+        <div class="manifesto-grid">
+            <div class="manifesto-content">
+                <h2>The Discipline<br>Agreement<span>.</span></h2>
+                <p>Mustela isn't a framework. It's a high-performance stream engine. It doesn't have a safety net because safety nets have weight.</p>
+            </div>
+            
+            <div class="manifesto-lists">
+                <ul class="manifesto-list">
+                    <li class="li-pro">Engineered for sub-millisecond throughput</li>
+                    <li class="li-pro">Direct HTML stream manipulation</li>
+                    <li class="li-pro">Zero-abstraction philosophy</li>
+                    <li class="li-warn">No automatic tag closing/validation</li>
+                    <li class="li-warn">Requires strict structural discipline</li>
+                    <li class="li-warn">Not recommended for beginners</li>
+                </ul>
+            </div>
+
+            <div class="hugo-exit">
+                Looking for a managed experience with built-in safety? 
+                <a href="https://gohugo.io" target="_blank" style="color: var(--accent); text-decoration: underline;">Use Hugo</a>. 
+                Staying? Then you know the rules.
+            </div>
+        </div>
+    </div>
+</section>
 end
 
 html as features do
@@ -28,7 +63,7 @@ html as features do
     </div>
     <div class="card">
         <div class="icon">📦</div>
-        <h3>400KB Binary</h3>
+        <h3>@binary_size Binary</h3>
         <p>No dependencies, no node_modules. Just a single, tiny, statically linked binary ready to run.</p>
     </div>
     <div class="card">
@@ -161,10 +196,10 @@ html as dsl_article do
   title:  <span class="mu-string">"Advanced Templating"</span>
   author: <span class="mu-string">"Filip Vrba"</span>
   index:  <span class="mu-string">article</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
 <span class="header"># Mixing Markdown & @title_web</span>
-This is standard Markdown text.
+This is standard Markdown text.<br>
 
 <span class="mu-keyword">html do</span>
 <span class="mu-tag">&lt;div class="special-callout"&gt;</span>
@@ -186,7 +221,7 @@ html as dsl_theme do
     <pre><code><span class="mu-keyword">meta do</span>
   title: <span class="mu-string">@title_web</span>
   index: <span class="mu-string">main</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
 <span class="mu-keyword">html as main do</span>
 <span class="mu-tag">&lt;!DOCTYPE html&gt;</span>
@@ -194,7 +229,7 @@ html as dsl_theme do
 <span class="mu-at">&commat;html[head]</span>
 <span class="mu-at">&commat;html[body]</span>
 <span class="mu-tag">&lt;/html&gt;</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
 <span class="mu-keyword">html as head do</span>
 <span class="mu-tag">&lt;head&gt;</span>
@@ -202,7 +237,7 @@ html as dsl_theme do
     <span class="mu-tag">&lt;title&gt;</span><span class="mu-at">&commat;title</span><span class="mu-tag">&lt;/title&gt;</span>
     <span class="mu-at">&commat;html[style]</span>
 <span class="mu-tag">&lt;/head&gt;</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
 <span class="mu-keyword">html as body do</span>
 <span class="mu-tag">&lt;body&gt;</span>
@@ -260,7 +295,7 @@ html as licensing do
         <p class="section-intro">@title_web is built to empower creators. Whether you are building a personal diary or a high-traffic commercial platform, the engine is yours to use.</p>
     </div>
 
-    <div class="grid">
+    <div class="grid" style="margin: 4rem 0;">
         <div class="card">
             <div class="icon">🏢</div>
             <h3>Commercial Usage</h3>
@@ -274,7 +309,7 @@ html as licensing do
     </div>
 </section>
 
-<section style="padding: 8rem 0; text-align: center; background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%); border-top: 1px solid #30363d;">
+<section style="padding: 8rem 0; text-align: center; background: radial-gradient(circle at center, #161b22 0%, #0d1117 80%); border-bottom: 0;">
     <div class="container">
         <h2 style="font-size: 3rem; margin-bottom: 1rem;">Experience the speed.</h2>
         <p style="color: var(--text-dim); font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">

@@ -39,7 +39,7 @@
     padding: 0 2rem;
   }
   .hero {
-    padding: 8rem 0 4rem;
+    padding: 5rem 0 3rem;
     text-align: center;
   }
   .badge {
@@ -98,7 +98,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
-    margin: 4rem 0;
   }
   .card {
     background: var(--card-bg);
@@ -122,9 +121,6 @@
   .card p {
     color: var(--text-dim);
     font-size: 0.9rem;
-  }
-  .benchmarks {
-    margin: 6rem 0;
   }
   h2 {
     font-size: 2rem;
@@ -299,9 +295,6 @@
       font-size: 3rem;
     }
   }
-  .architecture-3d-section {
-    padding: 6rem 0;
-  }
   .pipeline-dashboard {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -471,6 +464,60 @@
       .integration-connector { transform: rotate(90deg); margin: 0.5rem 0; }
   }
 
+  .manifesto {
+  padding: 5rem 0;
+  background: #0d1117;
+}
+.manifesto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+.manifesto-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-align: left; /* Tady to musí být doleva! */
+}
+.manifesto-content p {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+}
+.manifesto-list {
+    list-style: none;
+    font-family: var(--mono-font);
+    font-size: 0.9rem;
+}
+.manifesto-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+/* Zelené pluska pro výhody */
+.li-pro::before { content: "+"; position: absolute; left: 0; color: #39d353; }
+/* Oranžové mínuska pro varování - ladí s logem */
+.li-warn::before { content: "-"; position: absolute; left: 0; color: #f06c21; }
+.hugo-exit {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid #30363d;
+    text-align: center;
+    font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+    .manifesto-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+  section {
+    padding: 5rem 0; /* Místo 8rem */
+    border-bottom: 1px solid #30363d;
+    width: 100%;
+  }
   @media (max-width: 900px) {
       .pipeline-dashboard {
           grid-template-columns: 1fr;
@@ -531,7 +578,7 @@
     </div>
     <div class="card">
         <div class="icon">📦</div>
-        <h3>400KB Binary</h3>
+        <h3>1.3 MB Binary</h3>
         <p>No dependencies, no node_modules. Just a single, tiny, statically linked binary ready to run.</p>
     </div>
     <div class="card">
@@ -543,6 +590,32 @@
         <div class="icon">🔄</div>
         <h3>Partial Hydration</h3>
         <p>Smart change detection only re-renders what is necessary, keeping developer feedback loops under 50ms.</p>
+    </div>
+</section>
+
+    <section class="manifesto">
+    <div class="container">
+        <div class="manifesto-grid">
+            <div class="manifesto-content">
+                <h2>The Discipline<br>Agreement<span>.</span></h2>
+                <p>Mustela isn't a framework. It's a high-performance stream engine. It doesn't have a safety net because safety nets have weight.</p>
+            </div>
+            <div class="manifesto-lists">
+                <ul class="manifesto-list">
+                    <li class="li-pro">Engineered for sub-millisecond throughput</li>
+                    <li class="li-pro">Direct HTML stream manipulation</li>
+                    <li class="li-pro">Zero-abstraction philosophy</li>
+                    <li class="li-warn">No automatic tag closing/validation</li>
+                    <li class="li-warn">Requires strict structural discipline</li>
+                    <li class="li-warn">Not recommended for beginners</li>
+                </ul>
+            </div>
+            <div class="hugo-exit">
+                Looking for a managed experience with built-in safety? 
+                <a href="https://gohugo.io" target="_blank" style="color: var(--accent); text-decoration: underline;">Use Hugo</a>. 
+                Staying? Then you know the rules.
+            </div>
+        </div>
     </div>
 </section>
 
@@ -599,9 +672,9 @@
   title:  <span class="mu-string">"Advanced Templating"</span>
   author: <span class="mu-string">"Filip Vrba"</span>
   index:  <span class="mu-string">article</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 <span class="header"># Mixing Markdown & Mustela</span>
-This is standard Markdown text.
+This is standard Markdown text.<br>
 <span class="mu-keyword">html do</span>
 <span class="mu-tag">&lt;div class="special-callout"&gt;</span>
   <span class="mu-tag">&lt;h4&gt;</span>Mustela Insight<span class="mu-tag">&lt;/h4&gt;</span>
@@ -622,21 +695,21 @@ This is standard Markdown text.
     <pre><code><span class="mu-keyword">meta do</span>
   title: <span class="mu-string">Mustela</span>
   index: <span class="mu-string">main</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 <span class="mu-keyword">html as main do</span>
 <span class="mu-tag">&lt;!DOCTYPE html&gt;</span>
 <span class="mu-tag">&lt;html lang="</span><span class="mu-at">&commat;lang</span><span class="mu-tag">"&gt;</span>
 <span class="mu-at">&commat;html[head]</span>
 <span class="mu-at">&commat;html[body]</span>
 <span class="mu-tag">&lt;/html&gt;</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 <span class="mu-keyword">html as head do</span>
 <span class="mu-tag">&lt;head&gt;</span>
     <span class="mu-tag">&lt;meta charset="UTF-8"&gt;</span>
     <span class="mu-tag">&lt;title&gt;</span><span class="mu-at">&commat;title</span><span class="mu-tag">&lt;/title&gt;</span>
     <span class="mu-at">&commat;html[style]</span>
 <span class="mu-tag">&lt;/head&gt;</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 <span class="mu-keyword">html as body do</span>
 <span class="mu-tag">&lt;body&gt;</span>
     <span class="mu-at">&commat;html[header]</span>
@@ -735,7 +808,7 @@ This is standard Markdown text.
         <h2>Free for Everyone</h2>
         <p class="section-intro">Mustela is built to empower creators. Whether you are building a personal diary or a high-traffic commercial platform, the engine is yours to use.</p>
     </div>
-    <div class="grid">
+    <div class="grid" style="margin: 4rem 0;">
         <div class="card">
             <div class="icon">🏢</div>
             <h3>Commercial Usage</h3>
@@ -748,7 +821,7 @@ This is standard Markdown text.
         </div>
     </div>
 </section>
-<section style="padding: 8rem 0; text-align: center; background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%); border-top: 1px solid #30363d;">
+<section style="padding: 8rem 0; text-align: center; background: radial-gradient(circle at center, #161b22 0%, #0d1117 80%); border-bottom: 0;">
     <div class="container">
         <h2 style="font-size: 3rem; margin-bottom: 1rem;">Experience the speed.</h2>
         <p style="color: var(--text-dim); font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">

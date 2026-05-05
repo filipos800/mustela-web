@@ -10,10 +10,10 @@ html as file_metadata_01 do
     title:  <span class="mu-string">My Article</span>
     author: <span class="mu-string">@author</span>
     tags:   <span class="mu-string">vlang, web, dsl</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
 This will NOT work in raw Markdown:
-Hello <span class="mu-at">&commat;author</span>!
+Hello <span class="mu-at">&commat;author</span>!<br>
 
 Correct usage:
 <span class="mu-keyword">html do</span>
@@ -47,7 +47,7 @@ html as file_html_blocks_01 do
     <pre><code><span class="mu-keyword">html</span> <span class="mu-keyword">as</span> <span class="mu-string">callout_start</span> <span class="mu-keyword">do</span>
 <span class="mu-tag">&lt;div</span> <span class="mu-string">class="custom-callout"</span> <span class="mu-string">style="border-left: 4px solid </span><span class="mu-at">@accent_color</span><span class="mu-string">;"</span><span class="mu-tag">&gt;</span>
   <span class="mu-tag">&lt;div</span> <span class="mu-string">class="callout-inner"</span><span class="mu-tag">&gt;</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
 <span class="mu-keyword">html</span> <span class="mu-keyword">as</span> <span class="mu-string">callout_end</span> <span class="mu-keyword">do</span>
   <span class="mu-tag">&lt;/div&gt;</span>
@@ -66,10 +66,10 @@ html as file_html_blocks_02 do
     </div>
     <pre><code><span class="mu-keyword">html do</span>
 <span class="mu-at">&commat;html[callout_start]</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
 <strong>**This is Markdown!**</strong> Even though it's physically between two HTML calls, 
-Mustela renders it perfectly because the stream remains open.
+Mustela renders it perfectly because the stream remains open.<br>
 
 <span class="mu-keyword">html do</span>
 <span class="mu-at">&commat;html[callout_end]</span>
@@ -141,7 +141,7 @@ html as file_html_blocks_layouts do
     </div>
     <pre><code><span class="mu-keyword">html as desktop_layout do</span>
   <span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"desktop"</span><span class="mu-tag">&gt;</span><span class="mu-at">&commat;view</span><span class="mu-tag">&lt;/div&gt;</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
 <span class="mu-keyword">html as mobile_layout do</span>
   <span class="mu-tag">&lt;div</span> <span class="mu-at">class=</span><span class="mu-string">"mobile"</span><span class="mu-tag">&gt;</span><span class="mu-at">&commat;view</span><span class="mu-tag">&lt;/div&gt;</span>
@@ -161,9 +161,9 @@ html as file_markdown_grand_finale do
   title:  <span class="mu-string">"The Hybrid Power"</span>
   author: <span class="mu-string">"@author"</span>
   index:  <span class="mu-string">article</span>
-<span class="mu-keyword">end</span>
+<span class="mu-keyword">end</span><br>
 
-<br># Mixing Markdown & Mustela<br>
+# Mixing Markdown & Mustela
 This is standard Markdown text. But wait, we can inject logic:<br>
 
 <span class="mu-keyword">html do</span>

@@ -1,7 +1,7 @@
 meta do
   title:  "Getting Started"
   index:  document
-  description: Get up and running with Mustela in less than a minute. Learn how to install the 400KB binary, initialize your project, and build your first ultra-fast site.
+  description: Get up and running with Mustela in less than a minute. Learn how to install the binary, initialize your project, and build your first ultra-fast site.
   keywords: Mustela installation, static site generator tutorial, zero-dependency SSG, fast build tool, Mustela init
 end
 
@@ -16,9 +16,9 @@ html do
   <strong style="color: #58a6ff;">🚀 Release Status: Final Polishing</strong><br>
   Mustela is currently in its final stress-testing phase. The stable binary (v1.0.0) is scheduled for release by <strong>the end of May 2026</strong> (or sooner). 
 </div>
-end
 
-Mustela is distributed as a single, 400KB statically linked binary with zero dependencies.
+<p>Mustela is distributed as a single, @binary_size statically linked binary with zero dependencies.</p>
+end
 
 html do
 <pre><code class="language-bash"># 🚧 Links will be active soon (End of May)
